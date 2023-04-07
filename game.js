@@ -171,90 +171,35 @@ function playAgain() {
     cardArray.sort(() => 0.5 - Math.random());
     createBoard();
 }
-//! Functions for Stylings and stuff
-//Todo: Short this function with a for loop instead of fucking around like this
-bgObj = {
-    bg1: "url(images/bg/86blackandwhite.png) no-repeat center center/cover",
-    bg2: "url(images/bg/86illustration.jpg) no-repeat center center/cover",
-    bg3: "url(images/bg/86loli.jpg) no-repeat center center/cover",
-    bg4: "url(images/bg/86purple.jpg) no-repeat center center/cover",
-    bg5: "url(images/bg/86redwidebody.jpg) no-repeat center center/cover",
-    bg6: "url(images/bg/86sexy.jpg) no-repeat center center/cover",
-    bg7: "url(images/bg/86skid.jpg) no-repeat center center/cover",
-    bg8: "url(images/bg/86sun.png) no-repeat center center/cover",
-    bg9: "url(images/bg/86WP.jpg) no-repeat center center/cover",
-    bg10: "url(images/bg/carmeet.jpg) no-repeat center center/cover",
-    bg11: "url(images/bg/og.jpg) no-repeat center center/cover",
-    bg12: "url(images/bg/ogAngle.jpg) no-repeat center center/cover",
-    bg13: "url(images/bg/86goat.jpg) no-repeat center center/cover",
-    bg14: "url(images/bg/jdmBros.jpg) no-repeat center center/cover",
-    bg15: "url(images/bg/lambo86.jpg) no-repeat center center/cover",
-    bg16: "url(images/bg/nostalgia.jpg) no-repeat center center/cover",
-    bg17: "url(images/bg/ogGang.jpg) no-repeat center center/cover",
-    bg18: "url(images/bg/rx7&Nsx.jpg) no-repeat center center/cover"
-}
+//! Functions for Changing the background on clicks and auto background Changes
+const BgArray = [
+    "url(images/bg/86blackandwhite.png) no-repeat center center/cover",
+    "url(images/bg/86illustration.jpg) no-repeat center center/cover",
+    "url(images/bg/86loli.jpg) no-repeat center center/cover",
+    "url(images/bg/86purple.jpg) no-repeat center center/cover",
+    "url(images/bg/86redwidebody.jpg) no-repeat center center/cover",
+    "url(images/bg/86sexy.jpg) no-repeat center center/cover",
+    "url(images/bg/86skid.jpg) no-repeat center center/cover",
+    "url(images/bg/86sun.png) no-repeat center center/cover",
+    "url(images/bg/86WP.jpg) no-repeat center center/cover",
+    "url(images/bg/carmeet.jpg) no-repeat center center/cover",
+    "url(images/bg/og.jpg) no-repeat center center/cover",
+    "url(images/bg/ogAngle.jpg) no-repeat center center/cover",
+    "url(images/bg/86goat.jpg) no-repeat center center/cover",
+    "url(images/bg/jdmBros.jpg) no-repeat center center/cover",
+    "url(images/bg/lambo86.jpg) no-repeat center center/cover",
+    "url(images/bg/nostalgia.jpg) no-repeat center center/cover",
+    "url(images/bg/ogGang.jpg) no-repeat center center/cover",
+    "url(images/bg/rx7&Nsx.jpg) no-repeat center center/cover",
+    "url(images/bg/default1.png) no-repeat center center/cover"
+]
 let clicks = 0;
 function changeBackground() {
     clicks++;
-    switch (clicks) {
-        case 1:
-            $('.container').css("background", bgObj.bg1);
-            break;
-        case 2:
-            $('.container').css("background", bgObj.bg2);
-            break;
-        case 3:
-            $('.container').css("background", bgObj.bg3);
-            break;
-        case 4:
-            $('.container').css("background", bgObj.bg4);
-            break;
-        case 5:
-            $('.container').css("background", bgObj.bg5);
-            break;
-        case 6:
-            $('.container').css("background", bgObj.bg6);
-            break;
-        case 7:
-            $('.container').css("background", bgObj.bg7);
-            break;
-        case 8:
-            $('.container').css("background", bgObj.bg8);
-            break;
-        case 9:
-            $('.container').css("background", bgObj.bg9);
-            break;
-        case 10:
-            $('.container').css("background", bgObj.bg10);
-            break;
-        case 11:
-            $('.container').css("background", bgObj.bg11);
-            break;
-        case 12:
-            $('.container').css("background", bgObj.bg12);
-            break;
-        case 13:
-            $('.container').css("background", bgObj.bg13);
-            break;
-        case 14:
-            $('.container').css("background", bgObj.bg14);
-            break;
-        case 15:
-            $('.container').css("background", bgObj.bg15);
-            break;
-        case 16:
-            $('.container').css("background", bgObj.bg16);
-            break;
-        case 17:
-            $('.container').css("background", bgObj.bg17);
-            break;
-        case 18:
-            $('.container').css("background", bgObj.bg18);
-            break;
-        default:
-            clicks = 0;
-            console.log("Here we go Again");
-            break;
+    $('.container').css("background", BgArray[clicks]);
+    if (clicks == BgArray.length) {
+        clicks = 0;
+        console.log("Here we go again!")
     }
 }
 function autoBG() {
@@ -262,9 +207,19 @@ function autoBG() {
         changeBackground();
     }, 4000);
 }
-// autoBG();
-// $('#cringe').mouseleave(function () {
+// autoBG();//! For Testing Purpose
 
-//     $('#cringe button').addClass('hide');
-// });
+//! Adding hotkeys for the website
+$(document).keydown(function (e) {
+    if (e.which == 32) { // Check if 'r' or 'R' is pressed
+        // e.preventDefault(); // Prevent the default action of the key press
+        changeBackground(); // Call your function here
+    }
+});
 
+$(document).keydown(function (e) {
+    if (e.which == 82 || e.which == 114) { // Check if 'r' or 'R' is pressed
+        // e.preventDefault(); // Prevent the default action of the key press
+        playAgain(); // Call your function here
+    }
+});
