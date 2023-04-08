@@ -9,66 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <title>Initial D Memory Game</title>
 </head>
-<style>
-    #preload {
-        position: absolute;
-        color: grey;
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        text-align: center;
-    }
-
-    #preload h1 {
-        margin: 10px;
-    }
-
-    #tips {
-        position: absolute;
-        bottom: 0;
-        margin: 20px;
-    }
-
-    #tips p {
-        padding: 5px;
-    }
-
-    .preloadFinish {
-        opacity: 0;
-        pointer-events: none;
-        animation: removeLoader 2s ease-in-out;
-    }
-
-    @keyframes removeLoader {
-        from {
-            transform: translateY(0);
-        }
-
-        to {
-            transform: translateY(-100%);
-        }
-    }
-</style>
-<script>
-    window.addEventListener('load', () => {
-        document.querySelector('#preload').classList.add('preloadFinish');
-    });
-</script>
 
 <body>
-    <div id="preload">
-        <img src="images/vroom.gif" alt="vroom">
-        <h1>Loading....</h1>
-        <div id="tips">
-            <p>Tips: Hit Space to Change Background</p>
-            <p>Tips: Hit 'R' or 'r' to Restart the Game</p>
-        </div>
-    </div>
-
     <div class="container">
         <header>
             <h1 id="t2">Initial D Memory Game</h1>
@@ -85,9 +27,9 @@
         </section>
     </div>
     <!-- 
-todo: Make a Loading page and configure it to laod while files are in the right place
-todo: Make a stylesheet for Phone as well 
-     -->
+todo: Make a stylesheet for Phone as well and Pointer Help Hover to tell user about Hotkeys 
+todo: make a animation effect for the page load and test it out if it's good or not
+    -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!-- <script defer src="app.js" charset="utf-8"></script> -->
     <script defer src="game.js" charset="utf-8"></script>
